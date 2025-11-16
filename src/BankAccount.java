@@ -8,11 +8,17 @@ public class BankAccount {
         setBalance(balance + amount);
     }
     public void withdraw(double amount) {
+        if (amount > balance){
+            throw new IllegalArgumentException(
+                    "Withdraw cannot be more than the balance");
+        }
         setBalance(balance - amount);
     }
+
     public double getBalance() {
         return balance;
     }
+
     private void setBalance(double balance) {
         if (balance < 0) {
             throw new IllegalArgumentException(
